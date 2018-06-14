@@ -2,8 +2,9 @@ FROM hashicorp/packer
 
 RUN apk --no-cache --update add \
   ansible \
-  make
+  make \
+  shadow
 
-RUN adduser -D -H packer
+RUN adduser -D packer
 
 USER packer:packer
