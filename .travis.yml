@@ -1,0 +1,11 @@
+language: bash
+services: docker
+
+script:
+  - travis_retry docker build -t "eclecticiq/packer" .
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push eclecticiq/packer;
+    fi
