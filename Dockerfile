@@ -5,7 +5,9 @@ RUN apk --no-cache --update add \
   make \
   openssh \
   py2-pip \
-  shadow
+  shadow \
+  tar \
+  unzip
 
 RUN pip install jmespath
 
