@@ -1,8 +1,11 @@
 language: bash
 services: docker
 
+env:
+  version: 1.4.1
+
 script:
-  - travis_retry docker build -t "eclecticiq/packer" .
+  - travis_retry docker build --build-arg VERSION=$version -t "eclecticiq/packer:$version" .
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
