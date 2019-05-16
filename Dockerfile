@@ -1,4 +1,5 @@
-FROM hashicorp/packer
+ARG VERSION=latest
+FROM hashicorp/packer:$VERSION
 
 RUN apk --no-cache --update add \
   ansible \
